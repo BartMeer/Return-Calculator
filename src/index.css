@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Dark Mode Accessibility Enhancements */
+/* Ensures WCAG AA contrast compliance (4.5:1 for text) */
+
+.dark {
+  /* Improve text contrast in dark mode */
+  color-scheme: dark;
+}
+
+/* Better readable text in dark mode - increase brightness */
+.dark body,
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-gray-700 {
+  @apply text-gray-50;
+}
+
+/* Improve secondary text contrast */
+.dark .text-gray-600,
+.dark .text-gray-500 {
+  @apply text-gray-300;
+}
+
+/* Better table contrast */
+.dark table tbody td {
+  @apply text-gray-100;
+}
+
+.dark table thead th {
+  @apply text-gray-50;
+}
+
+/* Better button contrast */
+.dark
+  button:not(.dark\:bg-blue-900):not(.dark\:bg-gray-700):not(
+    .dark\:bg-red-900
+  ) {
+  @apply dark:text-gray-50;
+}
+
+/* Enhance focus states for accessibility */
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+  @apply ring-2 ring-blue-400 ring-offset-2 ring-offset-gray-800;
+}
+
+/* Better placeholder text contrast */
+.dark input::placeholder,
+.dark textarea::placeholder {
+  @apply text-gray-400;
+}
+
+/* Links have better contrast */
+.dark a {
+  @apply text-blue-400 hover:text-blue-300;
+}
+
+/* Badge and pill improvements */
+.dark .bg-green-50 {
+  @apply dark:bg-green-900/40;
+}
+
+.dark .bg-red-50 {
+  @apply dark:bg-red-900/40;
+}
+
+.dark .text-green-600 {
+  @apply dark:text-green-400;
+}
+
+.dark .text-red-600 {
+  @apply dark:text-red-400;
+}
